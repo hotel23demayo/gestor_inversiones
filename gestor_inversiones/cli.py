@@ -16,6 +16,8 @@ def main():
     parser_registro.add_argument('--precio', dest='precio_unitario', required=True, type=float)
     parser_registro.add_argument('--costo', dest='costo_total', required=True, type=float)
     parser_registro.add_argument('--dolar', dest='dolar_cambio', required=True, type=float)
+    parser_registro.add_argument('--fecha', dest='fecha', required=False,
+                                 help="Fecha de la transacción (YYYY-MM-DD o YYYY-MM-DDTHH:MM:SS). Si se omite, se usa la fecha actual.)")
 
     # Subcomando: consulta
     parser_consulta = subparsers.add_parser('consulta', help='Consultar registros.')
@@ -27,13 +29,15 @@ def main():
     args = parser.parse_args()
 
     if args.comando == 'registro':
+        # Pasar la fecha tal cual; `crud.registrar_compra` acepta string o datetime
         registrar_compra(
             args.activo,
             args.tipo,
             args.cantidad,
             args.precio_unitario,
             args.costo_total,
-            args.dolar_cambio
+            args.dolar_cambio,
+            fecha=args.fecha
         )
         print("✅ Compra registrada exitosamente")
 

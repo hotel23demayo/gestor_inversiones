@@ -54,7 +54,13 @@ python -m gestor_inversiones registro \
     --cantidad 0.1 \
     --precio 35000 \
     --costo 3500 \
-    --dolar 1000
+  --dolar 1000
+
+# Si quieres registrar la transacción con una fecha diferente (por ejemplo, para movimientos atrasados
+# al aplicar DCA), usa la opción `--fecha` con formato ISO (YYYY-MM-DD o YYYY-MM-DDTHH:MM:SS):
+python -m gestor_inversiones registro \
+  --activo BTC --tipo CRYPTO --cantidad 0.05 --precio 30000 --costo 1500 --dolar 1000 \
+  --fecha 2025-11-01
 ```
 
 ### Consultar todas las transacciones:

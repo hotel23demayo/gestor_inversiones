@@ -49,6 +49,20 @@ pip install -e .
 
 ## 🎮 Uso
 
+### Comandos Disponibles
+
+El gestor cuenta con **5 comandos principales**:
+
+| Comando | Descripción | Argumentos |
+|---------|-------------|-----------|
+| `registro` | Registrar nueva transacción (compra o venta) | `--activo`, `--operacion`, `--cantidad`, `--precio`, `--costo`, `--dolar`, `--fecha` (opt) |
+| `consulta` | Consultar transacciones con filtros | `--activo` (opt), `--operacion` (opt), `--desde` (opt), `--hasta` (opt) |
+| `actualizar` | Actualizar transacción existente | `--id` (req), más cualquier campo a modificar |
+| `borrar` | Eliminar una transacción | `--id` (req) |
+| `resumen` | Ver saldo por activo e inventario | Sin argumentos |
+
+---
+
 ### Registrar una nueva transacción:
 ```bash
 # Registrar una compra

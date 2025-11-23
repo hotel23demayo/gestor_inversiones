@@ -63,9 +63,38 @@ python -m gestor_inversiones registro \
   --fecha 2025-11-01
 ```
 
-### Consultar todas las transacciones:
+### Consultar transacciones:
+Puedes consultar todos tus registros o usar filtros opcionales para refinar la búsqueda:
+
 ```bash
+# Consultar todos los registros
 python -m gestor_inversiones consulta
+
+# Filtrar por activo específico
+python -m gestor_inversiones consulta --activo BTC
+
+# Filtrar por tipo de activo
+python -m gestor_inversiones consulta --tipo CRYPTO
+
+# Filtrar por rango de fechas
+python -m gestor_inversiones consulta --desde 2025-11-01 --hasta 2025-11-15
+
+# Combinar múltiples filtros
+python -m gestor_inversiones consulta --activo ETH --tipo CRYPTO --desde 2025-11-01 --hasta 2025-11-30
+```
+
+### Actualizar una transacción:
+Puedes actualizar uno o más campos de un registro existente sin necesidad de borrarlo y crear uno nuevo:
+
+```bash
+# Actualizar solo el nombre del activo (útil si te equivocaste al escribirlo)
+python -m gestor_inversiones actualizar --id 2 --activo ETH
+
+# Actualizar múltiples campos
+python -m gestor_inversiones actualizar --id 2 --activo ETH --cantidad 0.08 --precio 2500
+
+# Actualizar la fecha de una transacción
+python -m gestor_inversiones actualizar --id 2 --fecha 2025-10-15
 ```
 
 ### Borrar una transacción:
@@ -97,7 +126,7 @@ gestor_inversiones/
 
 - [ ] Exportación a CSV para análisis en Excel
 - [ ] Cálculo de rendimientos y ganancias/pérdidas
-- [ ] Filtros por fecha y tipo de activo
+- [x] Filtros por fecha y tipo de activo
 - [ ] Gráficos de distribución de portfolio
 - [ ] Respaldo automático de la base de datos
 
